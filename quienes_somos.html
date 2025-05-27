@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiénes Somos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+     background: linear-gradient(to right, rgb(54, 156, 23), #f8f8fa, #d6d90d);
+     
+      color: rgb(20, 19, 19);
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-family: Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+    button {
+   
+         display: inline-block;
+            padding: 10px 30px;
+            background: linear-gradient(to right, rgb(54, 156, 23), #f8f8fa, #ddeb17); /* Gradiente */
+            color: rgb(12, 12, 12);
+            border-radius: 20px; /* Bordes redondeados */
+
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: Comic Sans;
+            font-weight: bold;
+
+            
+    }
+  
+
+    button:hover {
+     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+ 
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Quiénes Somos?</h1>
+  </header>
+
+  <main>
+    <p id="info">
+        La Institución Educativa María Auxiliadora de Iquira, Huila, es una institución oficial mixta de carácter académico que ofrece educación preescolar, 
+        básica primaria y básica secundaria. Se ubica en la dirección KR 9 # 6-30. Es una comunidad educativa que acompaña a los niños y jóvenes en su proceso de crecimiento y maduración,
+         proporcionándoles una educación integral con un criterio cristiano, orientada a formar personas responsables. 
+    </p>
+    <p>
+     NUESTRA MISION: La Institución Educativa María Auxiliadora de modalidad técnica/comercial, es una comunidad educativa incluyente que educa
+     y se educa en el sistema preventivo – razón, religión,
+     amabilidad – para ser buenas cristianas, activas y honestas ciudadanas.
+    </p>
+    <P>
+     NUESTRA VISION: Al año 2.025 la Institución Educativa será reconocida como la mejor del municipio, por el compromiso cristiano
+     y salesiano con la paz, la inclusión y el cuidado del medio ambiente,
+     garantizado por una formación en valores, articulada con la educación superior y el mundo laboral.
+    </P>
+    
+    <br>
+
+    <button onclick="irAPrincipal()">Ir a la página principal</button>
+  </main>
+
+  <footer>
+    © 2025 - Nuestro Proyecto Escolar
+  </footer>
+
+    <script>
+    function irAPrincipal() {
+      window.location.href = "index.html"; 
+    }
+  </script>
+</body>
+</html>
