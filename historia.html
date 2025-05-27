@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #228b22, #32cd32);
+            color: white;
+            text-align: center;
+            padding: 8rem 0;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .location-badge {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #dc143c;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #228b22;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: #228b22;
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: #228b22;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding: 0 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: #f8fdf8;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            border-left: 4px solid #228b22;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 15px solid transparent;
+            border-left-color: #f8fdf8;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 15px solid transparent;
+            border-right-color: #f8fdf8;
+        }
+
+        .timeline-year {
+            background: #228b22;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(34, 139, 34, 0.3);
+        }
+
+        .timeline-content h3 {
+            color: #228b22;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item:nth-child(1) {
+            background: #228b22;
+        }
+
+        .stat-item:nth-child(2) {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .stat-item:nth-child(3) {
+            background: #dc143c;
+        }
+
+        .stat-item:nth-child(4) {
+            background: #228b22;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Achievement Banner */
+        .achievement-banner {
+            background: #dc143c;
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: #ffd700;
+        }
+
+        .achievement-banner h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-banner p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            background: #f8fdf8;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid #e8f5e8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #228b22;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            border-color: #228b22;
+            box-shadow: 0 10px 30px rgba(34, 139, 34, 0.2);
+        }
+
+        .gallery-item:nth-child(2)::before,
+        .gallery-item:nth-child(5)::before {
+            background: #ffd700;
+        }
+
+        .gallery-item:nth-child(3)::before,
+        .gallery-item:nth-child(6)::before {
+            background: #dc143c;
+        }
+
+        .gallery-icon {
+            width: 70px;
+            height: 70px;
+            background: #228b22;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(34, 139, 34, 0.3);
+        }
+
+        .gallery-item:nth-child(2) .gallery-icon,
+        .gallery-item:nth-child(5) .gallery-icon {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .gallery-item:nth-child(3) .gallery-icon,
+        .gallery-item:nth-child(6) .gallery-icon {
+            background: #dc143c;
+        }
+
+        .gallery-item h3 {
+            color: #228b22;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 2rem 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left;
+                padding-left: 4rem;
+            }
+
+            .timeline-item .timeline-content::after {
+                left: -15px !important;
+                right: auto !important;
+                border: 15px solid transparent;
+                border-right-color: #f8fdf8 !important;
+                border-left-color: transparent !important;
+            }
+
+            .stats {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .achievement-banner h3 {
+                font-size: 2rem;
+            }
+
+            .achievement-banner p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="location-badge">📍 Iquira, Huila - Colombia</div>
+                <h1>Nuestra Historia</h1>
+                <p>Más de 60 años formando líderes en el corazón del Huila. Desde 1962, la Institución Educativa María Auxiliadora ha sido pilar fundamental en la educación de Iquira, comprometida con la excelencia académica y la formación integral.</p>
+                <a href="#fundacion" class="cta-button">Descubre Nuestra Historia</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="fundacion" class="section">
+            <h2>Los Inicios</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">1962</span>
+                    <span class="stat-label">Año de Fundación</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">62+</span>
+                    <span class="stat-label">Años de Historia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">11</span>
+                    <span class="stat-label">Primeras Normalistas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1°</span>
+                    <span class="stat-label">Puesto en Huila 2024</span>
+                </div>
+            </div>
+            
+            <div class="achievement-banner">
+                <h3>🏆 Primer Puesto en el Huila 2024</h3>
+                <p>Entre 173 instituciones oficiales del departamento, destacando nuestro compromiso con la calidad educativa</p>
+            </div>
+
+            <p style="font-size: 1.2rem; text-align: center; color: #555; margin-top: 2rem; line-height: 1.8;">
+                En 1962, se estableció la Normal Femenina en Iquira como una modalidad alternativa a la educación comercial, 
+                marcando el inicio de una tradición educativa que ha transformado la región. Desde entonces, nuestra institución 
+                ha sido un faro de conocimiento y formación integral en el municipio de Iquira, Huila.
+            </p>
+        </section>
+
+        <section id="timeline" class="section">
+            <h2>Cronología Histórica</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1962</div>
+                        <h3>Fundación de la Normal Femenina</h3>
+                        <p>Se establece la Normal Femenina en Iquira como una modalidad alternativa a la educación comercial, respondiendo a las necesidades educativas de la región y abriendo nuevas oportunidades para la formación de maestras.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1964</div>
+                        <h3>Primeras Graduadas</h3>
+                        <p>Se gradúan las primeras once normalistas, marcando un hito histórico en la educación de Iquira. Estas pioneras se convirtieron en las primeras maestras formadas localmente, iniciando una tradición de excelencia pedagógica.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1980</div>
+                        <h3>Municipalización</h3>
+                        <p>El establecimiento se municipaliza, fortaleciendo su vínculo con la comunidad local y asegurando un mayor compromiso con el desarrollo educativo del municipio de Iquira.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985</div>
+                        <h3>Oficialización Departamental</h3>
+                        <p>Mediante la Ordenanza 015, se oficializa como Colegio Departamental María Auxiliadora, consolidando su estatus educativo en el departamento del Huila y ampliando su reconocimiento institucional.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2000s</div>
+                        <h3>Modernización Tecnológica</h3>
+                        <p>La institución invierte significativamente en infraestructura tecnológica, implementando salas de informática y acceso a internet en varias sedes, preparando a los estudiantes para la era digital.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3>Plan de Mejoramiento Académico</h3>
+                        <p>Se implementa un ambicioso plan de mejoramiento en las pruebas Saber, estableciendo estrategias pedagógicas innovadoras que llevarían a la institución a destacarse en el departamento del Huila.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020s</div>
+                        <h3>Proyectos Pedagógicos Innovadores</h3>
+                        <p>Se consolidan proyectos como el jardín escolar y la huerta escolar, fomentando la conciencia ecológica y el trabajo en equipo. Se fortalecen las actividades culturales y deportivas para el desarrollo integral.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Excelencia Reconocida</h3>
+                        <p>La institución ocupa el primer puesto entre 173 instituciones oficiales del Huila, coronando décadas de trabajo dedicado y confirmando su liderazgo en calidad educativa en la región.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="logros" class="section">
+            <h2>Logros y Proyectos</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-icon">🏆</div>
+                    <h3>Excelencia Académica</h3>
+                    <p>Primer puesto entre 173 instituciones oficiales del Huila en 2024, resultado del plan de mejoramiento implementado desde 2010</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">🌱</div>
+                    <h3>Jardín Escolar</h3>
+                    <p>Proyecto pedagógico que fomenta la conciencia ecológica y enseña a los estudiantes sobre sostenibilidad ambiental</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">🥬</div>
+                    <h3>Huerta Escolar</h3>
+                    <p>Iniciativa que promueve el trabajo en equipo, la responsabilidad y el conocimiento sobre agricultura sostenible</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">🎭</div>
+                    <h3>Festivales de Teatro</h3>
+                    <p>Actividades culturales que desarrollan la creatividad, expresión artística y confianza en los estudiantes</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">⚽</div>
+                    <h3>Campeonatos Intramuros</h3>
+                    <p>Competencias deportivas que fomentan el trabajo en equipo, la disciplina y el espíritu deportivo</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">💻</div>
+                    <h3>Tecnología Educativa</h3>
+                    <p>Modernas instalaciones tecnológicas con salas de informática y conectividad para preparar estudiantes del siglo XXI</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Nuestro Compromiso</h2>
+            <p style="font-size: 1.2rem; text-align: center; color: #555; line-height: 1.8; margin-bottom: 2rem;">
+                La Institución Educativa María Auxiliadora de Iquira continúa siendo un pilar fundamental en la educación 
+                del municipio y la región. Nos adaptamos constantemente a los desafíos del entorno educativo moderno, 
+                manteniendo nuestro compromiso inquebrantable con la formación de ciudadanos íntegros y competentes.
+            </p>
+            <p style="font-size: 1.2rem; text-align: center; color: #555; line-height: 1.8;">
+                Desde nuestras raíces como Normal Femenina hasta nuestro reconocimiento actual como la institución líder 
+                en el Huila, seguimos escribiendo historia y preparando a las nuevas generaciones para enfrentar los 
+                retos del futuro con conocimiento, valores y determinación.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
